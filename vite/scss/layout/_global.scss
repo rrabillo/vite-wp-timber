@@ -1,0 +1,26 @@
+html{
+  box-sizing: border-box;
+  font-size: rem($browser-context);
+}
+:root {
+  //scroll-behavior: unset;
+}
+
+body{
+  @include antialiased;
+  @extend %OpenSans;
+  @extend .primary-text; 
+  position: relative;
+  padding-top:var(--header-height);
+  color:var(--c-black);
+} 
+
+//Templates & Misc 
+.wrapper-message-page{
+  min-height:60vh;
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}

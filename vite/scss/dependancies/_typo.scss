@@ -1,0 +1,133 @@
+%OpenSans{
+  font-family: 'Open Sans';
+}
+
+$openSans : 'Open Sans';
+
+.primary-text{
+  font-size: rem(16);
+  line-height: rem(24);
+  @include media-breakpoint-down(lg){
+    font-size:rem(15);
+    line-height:rem(22);
+  }
+  @include media-breakpoint-down(md){
+    font-size: rem(14);
+    line-height: rem(21);
+  }
+}
+.smaller-text{
+  font-size: rem(14);
+  line-height: rem(21);
+  @include media-breakpoint-down(lg){
+    font-size:rem(13);
+    line-height:rem(19);
+  }
+  @include media-breakpoint-down(md){
+    font-size: rem(12);
+    line-height: rem(18);
+  }
+}
+.big-title{
+  font-size:rem(73);
+  line-height:rem(88);
+  @include media-breakpoint-down(lg){
+    font-size:rem(70);
+    line-height:rem(84);
+  }
+  @include media-breakpoint-down(md){
+    font-size:rem(48);
+    line-height:rem(67);
+  }
+}
+
+.title-1{
+  font-size: rem(48);
+  line-height: rem(67);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size: rem(45);
+    line-height: rem(63);
+  }
+  @include media-breakpoint-down(md){
+    font-size: rem(42);
+    line-height: rem(58);
+  }
+}
+
+.title-2{
+  font-size: rem(39);
+  line-height: rem(54);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size:rem(36);
+    line-height: rem(50);
+  }
+  @include media-breakpoint-down(md){
+    font-size: rem(33);
+    line-height: rem(46);
+  }
+}
+
+.title-3{
+  font-size: rem(31);
+  line-height: rem(43);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size:rem(29);
+    line-height:rem(40);
+  }
+  @include media-breakpoint-down(md){
+    font-size: rem(27);
+    line-height: rem(37);
+  }
+}
+
+.title-4{
+  font-size: rem(25);
+  line-height: rem(35);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size: rem(32);
+    line-height: rem(38);
+  }
+  @include media-breakpoint-down(md){
+    font-size:rem(21);
+    line-height:rem(29);
+  }
+}
+
+.title-5{
+  font-size: rem(20);
+  line-height: rem(28);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size: rem(19);
+    line-height: rem(26);
+  }
+  @include media-breakpoint-down(md){
+    font-size:rem(18);
+    line-height:rem(25)
+  }
+}
+
+.title-6{
+  font-size: rem(18);
+  line-height: rem(26);
+  font-weight: bold;
+  @include media-breakpoint-down(lg){
+    font-size: rem(17);
+    line-height: rem(25);
+  }
+  @include media-breakpoint-down(md){
+    font-size:rem(16);
+    line-height:rem(24)
+  }
+}
+
+
+@for $i from 1 through 5 {
+  h#{$i} {
+    @extend .title-#{$i};
+  }
+}

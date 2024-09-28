@@ -1,0 +1,32 @@
+@use "sass:math";
+
+$browser-context: 16;
+
+@function rem($size) {
+  $remSize: math.div($size , $browser-context);
+  @return #{$remSize}rem;
+}
+
+@mixin antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+
+
+
+
+// Weird resolution like macbook air with dock. Usefull for 100vh elements;
+@mixin small-height {
+  @media (max-height: 960px) and (min-width: 1200px) { @content; }
+}
+@mixin v-small-height {
+  @media (max-height: 750px) and (min-width: 1200px) { @content; }
+}

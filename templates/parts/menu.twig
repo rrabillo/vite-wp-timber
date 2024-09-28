@@ -1,0 +1,31 @@
+{% if menu %}
+	<ul class="{{ css_class }}" role="nav">
+	{% for item in menu %}
+
+		{% if item.get_children is not empty %}
+			{% set submenu = true %}
+		{% else %}
+			{% set submenu = false %}
+		{% endif %}
+
+		<li class="{{item.classes | join(' ')}} first-level {% if submenu %}accordion{% endif %}">
+			{% if submenu %}
+                <button class="collapsed"  data-bs-toggle="collapse" data-bs-target="#panel-{{ id }}-{{ loop.index }}" aria-expanded="false" aria-controls="panel-{{ id }}-{{ loop.index }}">
+                    {{ item.title }}  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="collapse second-level"  aria-labelledby="heading-{{ id }}-{{ loop.index }}" id="panel-{{ id }}-{{ loop.index }}" data-bs-parent="#main-navigation">
+                    <ul class="menu-item-submenu">
+                        {% for item in item.get_children %}
+                            <li class="menu-item-submenu-item">
+                                <a href="{{item.link}}">{{item.title}}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+				{% else %}
+				<a href="{{item.link}}"><span>{{item.title}}</span></a>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

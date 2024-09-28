@@ -1,0 +1,61 @@
+.rte, .mceContentBody{
+  color:var(--c-gray);
+  @extend .primary-text;
+  img{
+    max-width:100%;
+    height:auto;
+    overflow: hidden;
+  }
+  p, ul, ol{
+    margin-bottom: rem(24);
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+  ul{
+    li{
+    }
+  }
+  h1{
+    @extend .title-1;
+    margin-bottom: rem(24);
+  }
+  h2{
+    @extend .title-2;
+    margin-bottom: rem(24);
+  }
+  h3{
+    @extend .title-3;
+    margin-bottom: rem(24);
+  }
+  h4{
+    @extend .title-4;
+    margin-bottom: rem(24);
+  }
+  h5{
+    @extend .title-5;
+    margin-bottom: rem(24);
+  }
+  h6{
+    @extend .title-6;
+    margin-bottom:rem(24);
+  }
+  h1,h2,h3,h4,h5{
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+  .btn{
+    margin:0 rem(16);
+    &:first-child{
+      margin-left:0;
+    }
+    &:last-child{
+      margin-right:0;
+    }
+  }
+}
+
+body.mceContentBody{
+  margin: 9px 10px;
+}

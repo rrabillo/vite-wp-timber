@@ -1,0 +1,9 @@
+.flexible-wrap{
+  margin:rem(132) 0;
+  @include media-breakpoint-down(lg){
+    margin:rem(124) 0;
+  }
+  @include media-breakpoint-down(md){
+    margin:rem(115) 0;
+  }
+}

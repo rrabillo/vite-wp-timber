@@ -1,0 +1,20 @@
+.video{
+  &__consent{
+    &__empty{
+      background-color: var(--c-grey-80);
+      aspect-ratio: 16/9;
+      width:100%;
+      margin-bottom: rem(16);
+      border-radius:rem(24);
+    }
+    &__text{
+      button{
+        padding:0;
+        border:0;
+        background-color: transparent;
+        color:var(--c-orange-500);
+        text-decoration: underline;
+      }
+    }
+  }
+}

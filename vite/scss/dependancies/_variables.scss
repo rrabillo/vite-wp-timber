@@ -1,0 +1,32 @@
+/* Colors */
+:root{
+  --c-white:#FFF;
+  --c-black:#000;
+}
+
+
+
+$colors: (
+  'white': var(--c-white),
+  'black': var(--c-black),
+);
+
+// Build class utils
+@each $name, $var in $colors {
+  .color-#{$name}{
+    color:$var;
+    &:hover{
+      color:$var;
+    }
+  }
+  .bg-#{$name}{
+    background-color:$var;
+  }
+}
+
+:root{
+  --header-height:160px;
+  @include media-breakpoint-down(lg){
+    --header-height:74px;
+  }
+}

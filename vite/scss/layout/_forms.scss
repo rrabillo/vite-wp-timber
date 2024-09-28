@@ -1,0 +1,23 @@
+.input-text{
+  border:0;
+  border-radius:rem(16);
+  padding:rem(17) rem(32) !important;
+  @include media-breakpoint-down(sm){
+    padding:rem(16) !important;
+  }
+}
+.input-textarea{
+  border:0;
+  border-radius:rem(16);
+  padding:rem(17) rem(32) !important;
+  @include media-breakpoint-down(sm){
+    padding:rem(16) !important;
+  }
+}
+
+input[type="text"]:not(.facetwp-search), input[type="email"], input[type="date"], input[type="tel"], input[type="number"], input[type="password"]{
+  @extend .input-text;
+}
+textarea{
+  @extend .input-textarea;
+}

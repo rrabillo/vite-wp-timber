@@ -1,0 +1,55 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
+<head>
+	<meta charset="{{site.charset}}" />
+	<title>
+		{% if wp_title %}
+			{{ wp_title }}
+		{% else %}
+			{{ site.name }}
+		{% endif %}
+	</title>
+	<meta name="description" content="{{site.description}}">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<link rel="pingback" href="{{site.pingback_url}}" />
+	<meta name="theme-color" content="#ffffff">
+	<link rel="icon" type="image/png" href="{{ theme.link }}/favicon.png" />
+	{{function('wp_head')}}
+</head>
+
+<body class="{{body_class}}" data-template="base.twig">
+	{% import 'macros.twig' as macros %}
+	{% block header %}
+		{% include 'parts/header.twig' %}
+	{% endblock %}
+	{% include 'parts/navigation.twig' %}
+	<main id="content" class="content-wrapper">
+		<div class="wrapper {{sidebar_class}}">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</div>
+		{% if sidebar %}
+			<aside class="layout-sidebar">
+				{{sidebar}}
+			</aside>
+		{% endif %}
+	</main>
+
+{#	{% include 'blocks/cookie-bar.twig' %}#}
+	{% block footer %}
+		{% include '/parts/footer.twig'%}
+		{{ function('wp_footer') }}
+	{% endblock %}
+	<style>
+		html{
+			margin-top: 0 !important;
+		}
+	</style>
+	</body>
+</html>
