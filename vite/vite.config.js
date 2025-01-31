@@ -6,11 +6,12 @@ export default defineConfig(() => {
     return {
         server: {
             origin: 'http://localhost:5173',
+            cors:'127.0.0.1'
         },
         base:"./",
         build: {
             rollupOptions: {
-                input:['js/main.js','scss/style.scss', 'scss/tinystyles.scss'],
+                input:['js/main.js','scss/style.scss', 'scss/tinystyles.scss'], // Circular dependency if vidstack is init in main.js
                 output: {
                     assetFileNames: ({ name }) => {
                         if(/\.css$/.test(name)){
@@ -24,7 +25,8 @@ export default defineConfig(() => {
                         }
                         return '[ext]/[name].[ext]';
                     },
-                    entryFileNames:'js/main.js',
+                    entryFileNames:'js/[name].js',
+                    chunkFileNames:'js/[name].js',
                 },
             },
         },
