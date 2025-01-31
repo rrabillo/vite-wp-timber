@@ -67,6 +67,7 @@ class StarterSite extends Timber\Site {
         $context['footer_menu_bottom'] = Timber::get_menu('footer_menu_bottom');
         $context['site'] = $this;
         $context['cookies'] = $_COOKIE;
+        $context['assets'] = defined('ENV_DEV') && ENV_DEV ? 'vite/public' : 'vite/dist';
         return $context;
     }
 
