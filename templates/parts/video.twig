@@ -1,0 +1,39 @@
+{% if type_video == 'file' %}
+    {% set src = video_file.url %}
+{% else %}
+    {% set src = 'youtube/'~get_youtube_id(embed) %}
+{% endif %}
+
+{% set can_play = false %}
+{% if is_youtube_allowed() %}
+    {% set can_play = true %}
+{% endif %}
+{% if type_video == 'file' %}
+    {% set can_play = true %}
+{% endif %}
+<div class="video js-video" data-type="{{ type_video }}" data-src="{{ src }}" data-poster="{% if cover %}{{ get_image(cover).src }}{% else %}https://img.youtube.com/vi/{{ get_youtube_id(embed) }}/maxresdefault.jpg{% endif %}">
+    {% if can_play %}
+        <media-player
+                view-type="video"
+                log-level="warn"
+                crossorigin
+                playsinline
+                title="{{ item.title }}"
+                src="{{ src }}"
+        >
+            <media-provider>
+                <media-poster class="vds-poster" {% if cover %}src="{{ get_image(cover).src }}"{% endif %}></media-poster>
+            </media-provider>
+            <media-video-layout
+            ></media-video-layout>
+        </media-player>
+    {% else %}
+        <div class="video__consent js-video-consent">
+            <div class="video__consent__empty"></div>
+            <div class="video__consent__text">
+                Vos paramètres de cookies empêchent d'afficher la vidéo. <button class="js-cookies-consent-youtube">Cliquez ici pour activer les vidéos provenant de youtube</button>
+            </div>
+        </div>
+    {% endif %}
+    
+</div>
