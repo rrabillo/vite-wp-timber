@@ -91,7 +91,7 @@ class StarterSite extends Timber\Site {
             }
             else{
                 wp_register_style('style', get_template_directory_uri() .'/vite/dist/css/style.css', array(), '1.0.0');
-                wp_enqueue_script_module('global', get_template_directory_uri() .'/vite/dist/js/main.js', array(), '1.0.0', true  );
+                wp_enqueue_script_module('global', get_template_directory_uri() .'/vite/dist/js/prod.js', array(), '1.0.0', true  );
             }
             wp_enqueue_style('style');
             wp_localize_script( 'global', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
