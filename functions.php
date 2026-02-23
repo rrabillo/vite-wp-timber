@@ -11,24 +11,18 @@ else{
     Timber::$dirname = [ 'templates', 'views', 'vite/dist/images' ];
 }
 
-
-/**
- * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
- * No prob! Just set this value to true
- */
-Timber::$autoescape = false;
-
 class StarterSite extends Timber\Site {
 
     public function __construct() {
-        add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-        add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-        add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-        add_action( 'init', array( $this, 'register_post_types' ) );
-        add_action( 'init', array( $this, 'register_taxonomies' ) );
-        add_action( 'init', array($this, 'add_sizes_img'));
-        add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts' ) );
-        add_filter('upload_mimes', array ($this, 'allow_svg_upload'));
+        add_action( 'after_setup_theme', [$this, 'theme_supports'] );
+        add_filter( 'timber/context', [$this, 'add_to_context']);
+        add_filter( 'timber/twig', [$this, 'add_to_twig']);
+        add_filter('timber/twig/environment/options', [$this, 'enable_auto_escape']);
+        add_action( 'init', [$this, 'register_post_types']);
+        add_action( 'init', [$this, 'register_taxonomies']);
+        add_action( 'init', [$this, 'add_sizes_img']);
+        add_action( 'wp_enqueue_scripts', [$this, 'load_scripts']);
+        add_filter('upload_mimes', [$this, 'allow_svg_upload']);
 
         $this->require_dependancies();
 
@@ -45,7 +39,7 @@ class StarterSite extends Timber\Site {
 
     function require_dependancies(){
         require_once 'inc/hooks.php'; // Handle WordPress core hooks
-        require_once 'inc/utils.php';
+//        require_once 'inc/utils.php';
 //        require_once 'inc/acf.php';
 //        require_once 'inc/gravityform.php';
 //        require_once 'inc/facet.php';
@@ -86,12 +80,12 @@ class StarterSite extends Timber\Site {
         if (!is_admin()) {            
             if(defined('ENV_DEV') && ENV_DEV){
                 wp_enqueue_script_module('vite_client', 'http://localhost:5173/@vite/client');
-                wp_enqueue_script_module('global', 'http://localhost:5173/js/main.js', array(), '1.0.0', true  );
+                wp_enqueue_script_module('global', 'http://localhost:5173/js/main.js', array(), '1.0.0');
                 wp_register_style('style', 'http://localhost:5173/scss/style.scss', array(), '1.0.0');
             }
             else{
                 wp_register_style('style', get_template_directory_uri() .'/vite/dist/css/style.css', array(), '1.0.0');
-                wp_enqueue_script_module('global', get_template_directory_uri() .'/vite/dist/js/prod.js', array(), '1.0.0', true  );
+                wp_enqueue_script_module('global', get_template_directory_uri() .'/vite/dist/js/prod.js', array(), '1.0.0');
             }
             wp_enqueue_style('style');
             wp_localize_script( 'global', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
@@ -139,6 +133,11 @@ class StarterSite extends Timber\Site {
         else{
             return false;
         }
+    }
+    
+    function enable_auto_escape($option){
+        $options['autoescape'] = 'html';
+        return $options;
     }
 }
 

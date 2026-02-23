@@ -1,128 +1,59 @@
-%OpenSans{
-  font-family: 'Open Sans';
+%Walsheim{
+  font-family: 'GT Walsheim Pro';
 }
-
-$openSans : 'Open Sans';
 
 .primary-text{
-  font-size: rem(16);
-  line-height: rem(24);
-  @include media-breakpoint-down(lg){
-    font-size:rem(15);
-    line-height:rem(22);
-  }
-  @include media-breakpoint-down(md){
-    font-size: rem(14);
-    line-height: rem(21);
-  }
+  font-size:clamp(rem(14), 0.83vw ,rem(16));
+  line-height:1.4em;
 }
-.smaller-text{
-  font-size: rem(14);
-  line-height: rem(21);
-  @include media-breakpoint-down(lg){
-    font-size:rem(13);
-    line-height:rem(19);
-  }
-  @include media-breakpoint-down(md){
-    font-size: rem(12);
-    line-height: rem(18);
-  }
+.large-text{
+  line-height:1.4em;
+  font-size:clamp(rem(16), 0.9vw ,rem(18));
 }
-.big-title{
-  font-size:rem(73);
-  line-height:rem(88);
-  @include media-breakpoint-down(lg){
+.big-text{
+  font-size:rem(75);
+  line-height:1.4em;
+  @include down(xxl){
     font-size:rem(70);
-    line-height:rem(84);
   }
-  @include media-breakpoint-down(md){
-    font-size:rem(48);
-    line-height:rem(67);
+  @include down(md){
+    font-size:rem(65);
   }
 }
-
+.light{
+  font-weight:300;
+}
+.small-text{
+  font-size:clamp(rem(12), 0.83vw ,rem(14));
+  line-height:1.4em;
+}
 .title-1{
-  font-size: rem(48);
-  line-height: rem(67);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size: rem(45);
-    line-height: rem(63);
-  }
-  @include media-breakpoint-down(md){
-    font-size: rem(42);
-    line-height: rem(58);
-  }
+  line-height:1.4em;
+  font-size:clamp(rem(27), 2.5vw ,rem(48));
 }
-
 .title-2{
-  font-size: rem(39);
-  line-height: rem(54);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size:rem(36);
-    line-height: rem(50);
-  }
-  @include media-breakpoint-down(md){
-    font-size: rem(33);
-    line-height: rem(46);
-  }
+  font-size:clamp(rem(27), 2.5vw ,rem(39));
+  line-height:1.4em;
 }
-
 .title-3{
-  font-size: rem(31);
-  line-height: rem(43);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size:rem(29);
-    line-height:rem(40);
-  }
-  @include media-breakpoint-down(md){
-    font-size: rem(27);
-    line-height: rem(37);
-  }
+  font-size:clamp(rem(27), 1.6vw ,rem(31));
+  line-height:1.2em;
 }
-
 .title-4{
-  font-size: rem(25);
-  line-height: rem(35);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size: rem(32);
-    line-height: rem(38);
-  }
-  @include media-breakpoint-down(md){
-    font-size:rem(21);
-    line-height:rem(29);
-  }
+  font-size:clamp(rem(21), 1.3vw ,rem(25));
+  line-height:1.2em;
 }
-
 .title-5{
-  font-size: rem(20);
-  line-height: rem(28);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size: rem(19);
-    line-height: rem(26);
-  }
-  @include media-breakpoint-down(md){
-    font-size:rem(18);
-    line-height:rem(25)
-  }
+  font-size:clamp(rem(18), 1vw ,rem(20));
+  line-height:1.2em;
+}
+.title-6{
+  @extend .large-text;
 }
 
-.title-6{
-  font-size: rem(18);
-  line-height: rem(26);
-  font-weight: bold;
-  @include media-breakpoint-down(lg){
-    font-size: rem(17);
-    line-height: rem(25);
-  }
-  @include media-breakpoint-down(md){
-    font-size:rem(16);
-    line-height:rem(24)
-  }
+.text-tag{
+  @extend .small-text;
+  color:var(--color-secondary);
 }
 
 
@@ -130,4 +61,4 @@ $openSans : 'Open Sans';
   h#{$i} {
     @extend .title-#{$i};
   }
-}
+} 

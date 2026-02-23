@@ -46,6 +46,7 @@ export default defineConfig(() => {
                 includePublic: true,
                 logStats: true,
                 ansiColors: true,
+                animated:true,
                 svg: {
                     multipass: true,
                     plugins: [

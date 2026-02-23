@@ -21,8 +21,6 @@ $browser-context: 16;
 
 
 
-
-
 // Weird resolution like macbook air with dock. Usefull for 100vh elements;
 @mixin small-height {
   @media (max-height: 960px) and (min-width: 1200px) { @content; }
@@ -30,3 +28,20 @@ $browser-context: 16;
 @mixin v-small-height {
   @media (max-height: 750px) and (min-width: 1200px) { @content; }
 }
+@mixin vv-small-height{
+  @media (max-height: 639px) and (min-width: 1200px) { @content; }
+}
+@mixin large-ratio{ // Macbook air with dock for example
+  @media (min-aspect-ratio: 22/10){ @content; }
+}
+@mixin very-large-ratio{
+  @media (min-aspect-ratio: 12/4.7){ @content;}
+}
+@mixin mobile-landscape{
+  @media screen and (max-width: 1199px) and (orientation: landscape){@content;}
+}
+//
+//
+//@function fluid-typo($font_size_mobile, $font_size_desktop, $viewport : 1920){
+//  @return clamp(rem($font_size_mobile), #{($font_size_desktop / $viewport * 100)}vw, rem($font_size_desktop));
+//}

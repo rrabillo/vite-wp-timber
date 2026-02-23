@@ -1,0 +1,69 @@
+$breakpoints: (
+  xs: 375px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1540px
+);
+
+@function bp($key) {
+  @return map-get($breakpoints, $key);
+}
+
+// 3. Media queries
+
+@mixin up($key) {
+  @media (min-width: #{bp($key)} + 0.2px) {
+    @content;
+  }
+}
+
+@mixin down($key) {
+  @media (max-width: #{bp($key)}) {
+    @content;
+  }
+}
+
+@mixin between($min, $max) {
+  @media (min-width: #{bp($min)} + 0.2px) and (max-width: #{bp($max)}) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}

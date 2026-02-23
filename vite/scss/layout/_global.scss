@@ -3,24 +3,35 @@ html{
   font-size: rem($browser-context);
 }
 :root {
-  //scroll-behavior: unset;
+  scroll-behavior: unset;
 }
 
 body{
   @include antialiased;
-  @extend %OpenSans;
-  @extend .primary-text; 
   position: relative;
-  padding-top:var(--header-height);
   color:var(--c-black);
-} 
+  @extend .primary-text;
+  background-color: var(--c-white);
+}
 
-//Templates & Misc 
-.wrapper-message-page{
-  min-height:60vh;
-  text-align: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
+//Templates & Misc
+.container{
+  width:77.8125vw;
+  max-width:1494px;
+  margin:0 auto;
+  @include down(xl){
+    width:83.3vw;
+  }
+  &.container-smaller{
+    width:67vw;
+    max-width:1280px
+  }
+}
+
+button{
+  cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin:0;
 }

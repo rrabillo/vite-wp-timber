@@ -139,6 +139,14 @@ window.app = (() => {
             let expires = "expires="+ d.toUTCString();
             document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
         }
+        
+        /**
+         * Remove a cookie
+         * @param {string} cname - Cookie name
+         */
+        static removeCookie(cname){
+            this.setCookie(cname,'',-1);
+        }
     }
 
     const app = element =>  new appUtils(element);
@@ -154,6 +162,7 @@ window.app = (() => {
     app.createElement = appUtils.createElement;
     app.getCookie = appUtils.getCookie;
     app.setCookie = appUtils.setCookie;
+    app.removeCookie = appUtils.removeCookie;
 
     return app;
 })();

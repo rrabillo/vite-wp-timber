@@ -1,44 +1,55 @@
 .rte, .mceContentBody{
-  color:var(--c-gray);
-  @extend .primary-text;
+  color:var(--color-primary-900);
   img{
     max-width:100%;
     height:auto;
     overflow: hidden;
   }
   p, ul, ol{
+    margin:0;
     margin-bottom: rem(24);
     &:last-child{
       margin-bottom:0;
     }
-  }
-  ul{
     li{
+      margin-bottom:1.5em;
+      &:last-child{
+        margin-bottom:0;
+      }
+    }
+  }
+  ol{
+    padding-left:1em;
+    li{
+      margin-bottom: 0;
+      &::marker{
+        font-weight:bold;
+      }
     }
   }
   h1{
-    @extend .title-1;
-    margin-bottom: rem(24);
+    //@extend .title-1;
+    //margin-bottom: rem(24);
   }
   h2{
-    @extend .title-2;
-    margin-bottom: rem(24);
+    //@extend .title-2;
+    //margin-bottom: rem(24);
   }
   h3{
-    @extend .title-3;
-    margin-bottom: rem(24);
+    //@extend .title-3;
+    //margin-bottom: rem(24);
   }
   h4{
-    @extend .title-4;
-    margin-bottom: rem(24);
+    //@extend .title-4;
+    //margin-bottom: rem(24);
   }
   h5{
-    @extend .title-5;
-    margin-bottom: rem(24);
+    //@extend .title-5;
+    //margin-bottom: rem(24);
   }
   h6{
-    @extend .title-6;
-    margin-bottom:rem(24);
+    //@extend .title-6;
+    //margin-bottom:rem(24);
   }
   h1,h2,h3,h4,h5{
     &:first-child{
@@ -57,5 +68,7 @@
 }
 
 body.mceContentBody{
+  @extend %Walsheim; 
+  @extend .primary-text;
   margin: 9px 10px;
 }

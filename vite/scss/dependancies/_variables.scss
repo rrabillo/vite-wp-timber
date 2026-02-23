@@ -5,7 +5,6 @@
 }
 
 
-
 $colors: (
   'white': var(--c-white),
   'black': var(--c-black),
@@ -21,12 +20,5 @@ $colors: (
   }
   .bg-#{$name}{
     background-color:$var;
-  }
-}
-
-:root{
-  --header-height:160px;
-  @include media-breakpoint-down(lg){
-    --header-height:74px;
   }
 }

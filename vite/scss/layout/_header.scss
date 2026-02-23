@@ -1,1 +1,99 @@
-.header{}
+.header{
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index: 100;
+  container-type: inline-size;
+  pointer-events: none;
+  &__inner{
+    display: flex;
+    align-items: stretch;
+    container-type: inline-size;
+    background-color: var(--c-white);
+    height:calc(var(--mosaic-cell-size) * 0.5);
+    margin-left:calc(var(--mosaic-cell-size) * 8);
+    pointer-events: all;
+    @include down(xl){
+      justify-content: space-between;
+      align-items: center;
+      padding:0 rem(24);
+      margin:0;
+      height: var(--header-height);
+    }
+  }
+  &__logo{
+    display:none;
+    width:rem(124);
+    svg{
+      width: 100%;
+      height:auto;
+    }
+    @include down(xl){
+      display:block;
+    }
+  }
+  &__links{
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: stretch;
+    @include down(xl){
+      width:auto;
+      height:auto;
+      align-items: center;
+      gap:rem(48);
+    }
+    button,a{
+      width:50%;
+      height:100%;
+      background-color: var(--c-white);
+      text-decoration: none;
+      color:var(--color-secondary);
+      padding:0;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      border:0;
+      font-size: rem(20);
+      line-height:rem(20);
+      transition: all 250ms;
+      flex-flow: column;
+      gap:rem(8);
+      span{
+        @extend .small-text;
+      }
+      &:hover{
+        background-color: var(--color-secondary-10);
+      }
+    }
+    button{
+      .close{
+        display:none;
+      }
+      &.is-open{
+        .open{
+          display:none;
+        }
+        .close{
+          display:block;
+        }
+      }
+    }
+  }
+  @include down(xl){
+    height: var(--header-height);
+    left:0;
+  }
+  @include large-ratio{
+    //left:calc(var(--mosaic-cell-size) * 8.5);
+  }
+  @media screen and (max-width: 1400px) {
+    //left:calc(var(--mosaic-cell-size) * 7.5);
+  }
+}
+html.is-accessibility{
+  .header__links button, .header__links a{
+    border:1px solid yellow;
+    color:yellow;
+  }
+}
